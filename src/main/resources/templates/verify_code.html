@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Verify Factor</title>
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+    </head>
+    <body>
+        <div class="form-container">
+            <h2>Input 2FA code from your authenticator app</h2>
+            <div id="messages">
+                <div th:if="${verifyError != null}" class="error"> <span th:text="${verifyError}"> </span></div>
+            </div>
+            <div th:if="${verify_factor}">
+                <form class="form" th:action="@{/verify-factor}" method="post">
+                    <input type="text" class="code" name="code" placeholder="Input code here" required>
+                    <button type="submit">Verify</button>
+                </form>
+            </div>
+            <div th:if="${verify_token}">
+                <form class="form" th:action="@{/verify-token}" method="post">
+                    <input type="text" class="code" name="code" placeholder="Input code here" required>
+                    <button type="submit">Verify</button>
+                </form>
+            </div>
+
+            <span> - or - </span> <br>
+            <a id="redirect-link"  th:href="@{/setup-2fa}" >Scan QR Code again</a>
+        </div>
+    </body>
+</html>

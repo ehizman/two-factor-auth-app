@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dashboard</title>
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+    </head>`
+    <body>
+    <div class="container">
+        <h1 class="text-overlay">Welcome <span id="username" th:text="${username}"></span></h1>
+        <img th:src="'https://images.pexels.com/photos/1005766/pexels-photo-1005766.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'" alt="Welcome Image" class="welcome-img">
+    </div>
+    <div>
+        <form id="logout" th:action="@{/login?logoutSuccess=true}" method="get">
+            <button class="logout-btn">Logout</button>
+        </form>
+    </div>
+    </body>
+</html>
